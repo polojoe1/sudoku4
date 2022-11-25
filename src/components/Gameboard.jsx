@@ -9,6 +9,7 @@ const Gameboard = (props) => {
         }
     }
     let board=([
+        //find  a way to make it random
         [Math.floor(Math.random() * 4) + 1,2,3,4],
         [1,2,3,4],
         [1,2,3,4],
