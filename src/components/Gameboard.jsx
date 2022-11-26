@@ -14,7 +14,7 @@ const Gameboard = (props) => {
         [1,2,3,4],
         [1,2,3,4],
         [1,2,3,4]
-
+//also nake logic for rows and columns
     ])
     const [zeroZero, setZeroZero] = useState(board[0][0])
     const [zeroOne, setZeroOne] = useState(board[0][1])
