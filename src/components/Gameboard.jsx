@@ -256,6 +256,111 @@ const Gameboard = (props) => {
                 
             }
         }
+        //colums
+        let col1 = [zeroZero,zeroTwo,twoZero,twoTwo]
+        let col1Obj = {}
+        let col2 = [zeroOne,zeroThree,twoOne,twoThree]
+        let col2Obj = {}
+        let col3=[oneZero,oneTwo,threeZero,threeTwo]
+        let col3Obj = {}
+        let col4 = [oneOne,oneThree,threeOne,threeThree]
+        let col4Obj = {}
+
+
+        //col 1
+        for(let i=0;i<col1.length;i++){
+            if(col1[i] in col1Obj){
+                errors++
+                if(i===1){
+                    document.getElementById('zeroTwo').classList.add('border-red-600')
+                }
+                else if(i===2){
+                    document.getElementById('twoZero').classList.add('border-red-600')
+                }
+                else if(i===3){
+                    document.getElementById('twoTwo').classList.add('border-red-600')
+                }
+                break
+            }
+                
+            else{
+                col1Obj[col1[i]]=1
+                if(i===3){
+                    document.getElementById('twoZero').classList.remove('border-red-600')
+                }
+            }
+            
+        }
+
+        //col 2
+        for(let i=0;i<col2.length;i++){
+            if(col2[i] in col2Obj){
+                errors++
+                if(i===1){
+                    document.getElementById('zeroThree').classList.add('border-red-600')
+                }
+                else if(i===2){
+                    document.getElementById('twoOne').classList.add('border-red-600')
+                }
+                else if(i===3){
+                    document.getElementById('twoThree').classList.add('border-red-600')
+                }
+                break
+            }
+                
+            else{
+                col2Obj[col2[i]]=1
+                
+            }
+            
+        }
+        //col 3
+        for(let i=0;i<col3.length;i++){
+            if(col3[i] in col3Obj){
+                errors++
+                if(i===1){
+                    document.getElementById('oneTwo').classList.add('border-red-600')
+                }
+                else if(i===2){
+                    document.getElementById('threeZero').classList.add('border-red-600')
+                }
+                else if(i===3){
+                    document.getElementById('threeTwo').classList.add('border-red-600')
+                }
+                break
+            }
+                
+            else{
+                col3Obj[col3[i]]=1
+                if(i===3){
+                    document.getElementById('threeZero').classList.remove('border-red-600')
+                }
+            }
+            
+        }
+
+        //col 4
+        for(let i=0;i<col4.length;i++){
+            if(col4[i] in col4Obj){
+                errors++
+                if(i===1){
+                    document.getElementById('oneThree').classList.add('border-red-600')
+                }
+                else if(i===2){
+                    document.getElementById('threeOne').classList.add('border-red-600')
+                }
+                else if(i===3){
+                    document.getElementById('threeThree').classList.add('border-red-600')
+                }
+                break
+            }
+                
+            else{
+                col4Obj[col4[i]]=1
+                
+            }
+            
+        }
 
         if(errors===0){
             setSuccess(true)
