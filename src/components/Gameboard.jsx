@@ -8,12 +8,18 @@ const Gameboard = (props) => {
             box.classList.add('border-blue-200')
         }
     }
+    const generateNum = () => {
+        let randomNum = Math.floor(Math.random() * 6 + 1)
+        return randomNum>4?'':randomNum
+    }
+    
     let board=([
         //find  a way to make it random
-        [Math.floor(Math.random() * 4) + 1,2,3,4],
-        [1,2,3,4],
-        [1,2,3,4],
-        [1,2,3,4]
+        
+        [generateNum(),generateNum(),generateNum(),generateNum()],
+        [generateNum(),generateNum(),generateNum(),generateNum()],
+        [generateNum(),generateNum(),generateNum(),generateNum()],
+        [generateNum(),generateNum(),generateNum(),generateNum()]
 //also nake logic for rows and columns
     ])
     const [zeroZero, setZeroZero] = useState(board[0][0])
@@ -36,13 +42,86 @@ const Gameboard = (props) => {
     const [threeTwo, setThreeTwo] = useState(board[3][2])
     const [threeThree, setThreeThree] = useState(board[3][3])
 
-
+    
     const final = [
         [zeroZero,zeroOne,zeroTwo,zeroThree],
         [oneZero,oneOne,oneTwo,oneThree],
         [twoZero,twoOne,twoTwo,twoThree],
         [threeZero,threeOne,threeTwo,threeThree]
     ]
+
+    const setBoard=()=>{
+        let boxOne={}
+        let boxTwo = {}
+        let boxThree = {}
+        let boxFour = {}
+        for(let i = 0;i<final[0].length;i++){
+            if(final[0][i]in boxOne){
+                if(i===1){
+                    setZeroOne('')
+                }
+                if(i===2){
+                    setZeroTwo('')
+                }
+                if(i===3){
+                    setZeroThree('')
+                }
+            }
+            else{
+                boxOne[final[0][i]]=1
+            }
+        }
+        for(let i = 0;i<final[1].length;i++){
+            if(final[1][i]in boxTwo){
+                if(i===1){
+                    setOneOne('')
+                }
+                if(i===2){
+                    setOneTwo('')
+                }
+                if(i===3){
+                    setOneThree('')
+                }
+            }
+            else{
+                boxTwo[final[1][i]]=1
+            }
+        }
+        for(let i = 0;i<final[2].length;i++){
+            if(final[2][i]in boxThree){
+                if(i===1){
+                    setTwoOne('')
+                }
+                if(i===2){
+                    setTwoTwo('')
+                }
+                if(i===3){
+                    setTwoThree('')
+                }
+            }
+            else{
+                boxThree[final[2][i]]=1
+            }
+        }
+        for(let i = 0;i<final[3].length;i++){
+            if(final[3][i]in boxFour){
+                if(i===1){
+                    setThreeOne('')
+                }
+                if(i===2){
+                    setThreeTwo('')
+                }
+                if(i===3){
+                    setThreeThree('')
+                }
+            }
+            else{
+                boxFour[final[3][i]]=1
+            }
+        }
+
+    }
+    
 
     const submit =()=>{
         let b0x = {}
@@ -422,7 +501,7 @@ const Gameboard = (props) => {
             </div>
         </div>  
         <button onClick={submit} className='h-8 w-20 bg-blue-400 flex items-center justify-center mt-10 border-2 hover:bg-blue-700 border-blue-900 rounded-md cursor-pointer text-white'>Submit</button>
-
+        <button onClick={setBoard}>Set Board</button>
         {success?<p>You Win!</p>:''}
     </div>
   )
