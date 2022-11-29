@@ -9,7 +9,7 @@ const Gameboard = (props) => {
         }
     }
     const generateNum = () => {
-        let randomNum = Math.floor(Math.random() * 6 + 1)
+        let randomNum = Math.floor(Math.random() * 4 + 1)
         return randomNum>4?'':randomNum
     }
     
@@ -59,6 +59,10 @@ const Gameboard = (props) => {
         let col2Obj={}
         let col3Obj={}
         let col4Obj={}
+        let row1Obj = {}
+        let row2Obj = {}
+        let row3Obj = {}
+        let row4Obj= {}
         for(let i = 0;i<final[0].length;i++){
             if(final[0][i]in boxOne){
                 if(i===1){
@@ -196,12 +200,84 @@ const Gameboard = (props) => {
                 col4Obj[col4[i]]=1
             }
         }
+        for(let i = 0;i<row1.length;i++){
+            if(row1[i] in row1Obj){
+                if(i===1){
+                    setZeroOne('')
+                }
+                if(i===2){
+                    setOneZero('')
+                }
+                if(i===3){
+                    setOneOne('')
+                }
+            }
+            else{
+                row1Obj[row1[i]]=1
+            }
+        }
+
+        for(let i = 0;i<row2.length;i++){
+            if(row2[i] in row2Obj){
+                if(i===1){
+                    setZeroThree('')
+                }
+                if(i===2){
+                    setOneTwo('')
+                }
+                if(i===3){
+                    setOneThree('')
+                }
+            }
+            else{
+                row2Obj[row2[i]]=1
+            }
+        }
+
+        for(let i = 0;i<row3.length;i++){
+            if(row3[i] in row3Obj){
+                if(i===1){
+                    setTwoOne('')
+                }
+                if(i===2){
+                    setThreeZero('')
+                }
+                if(i===3){
+                    setThreeOne('')
+                }
+            }
+            else{
+                row3Obj[row3[i]]=1
+            }
+        }
+
+        for(let i = 0;i<row4.length;i++){
+            if(row4[i] in row4Obj){
+                if(i===1){
+                    setTwoThree('')
+                }
+                if(i===2){
+                    setThreeTwo('')
+                }
+                if(i===3){
+                    setThreeThree('')
+                }
+            }
+            else{
+                row4Obj[row4[i]]=1
+            }
+        }
     }
     //all of them
     let col1 = [zeroZero,zeroTwo,twoZero,twoTwo]
     let col2 = [zeroOne,zeroThree,twoOne,twoThree]
     let col3=[oneZero,oneTwo,threeZero,threeTwo]
     let col4 = [oneOne,oneThree,threeOne,threeThree]
+
+    let row1 = [zeroZero,zeroOne,oneZero,oneOne]
+    let row2 = [zeroTwo,zeroThree,oneTwo,oneThree]
+    let row3 = [twoZero,twoOne,threeZero,threeOne]
+    let row4 = [twoTwo,twoThree,threeTwo,threeThree]
 
 
 
@@ -317,13 +393,13 @@ const Gameboard = (props) => {
         } 
 
         // Rows
-        let row1 = [zeroZero,zeroOne,oneZero,oneOne]
+        
         let row1Obj = {}
-        let row2 = [zeroTwo,zeroThree,oneTwo,oneThree]
+        
         let row2Obj = {}
-        let row3 = [twoZero,twoOne,threeZero,threeOne]
+        
         let row3Obj = {}
-        let row4 = [twoTwo,twoThree,threeTwo,threeThree]
+        
         let row4Obj = {}
         //Row1
         for(let i=0;i<row1.length;i++){
