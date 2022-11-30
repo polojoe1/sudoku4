@@ -267,6 +267,18 @@ const Gameboard = (props) => {
                 row4Obj[row4[i]]=1
             }
         }
+        let count = 0;
+        for(let i=0;i<final.length;i++){
+            for(let j=0;j<final[i].length;j++){
+                if(count<5){
+                    if(final[i][j]!==''){
+                        count++
+                        console.log(count)
+                    }
+                }
+        
+            }
+        }
     }
     //all of them
     let col1 = [zeroZero,zeroTwo,twoZero,twoTwo]
