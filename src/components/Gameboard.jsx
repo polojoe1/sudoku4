@@ -63,6 +63,7 @@ const Gameboard = (props) => {
         let row2Obj = {}
         let row3Obj = {}
         let row4Obj= {}
+        let nums = 0;
         for(let i = 0;i<final[0].length;i++){
             if(final[0][i]in boxOne){
                 if(i===1){
